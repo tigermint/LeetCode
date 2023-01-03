@@ -1,12 +1,13 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         strs = []
-        for char in s:
-            if char.isalnum():
-                strs.append(char.lower())
-                
-        # 팰린트룸 여부 판별
-        while len(strs) > 1:
-            if strs.pop(0) != strs.pop():
+        for item in s:
+            if item.isalnum():
+                strs.append(item.lower())
+        
+        index = 0
+        while index < len(strs) / 2:
+            if strs[index] != strs[len(strs) - index - 1]:
                 return False
+            index += 1
         return True
