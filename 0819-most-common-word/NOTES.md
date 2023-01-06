@@ -1,14 +1,14 @@
 ## 풀이1. 리스트 컴프리헨션, Counter 객체 사용
 ```python
-class Solution(object):
-    def mostCommonWord(self, paragraph, banned):
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
         words = [word for word in re.sub(r'[^\w]', ' ', paragraph)
                  .lower().split()
                     if word not in banned]
         
         counts = collections.Counter(words)
-        #가장 흔하게 등장하는 단어의 첫 번째 인덱스 리턴
-        return counts.most_common(1)[0][0]        
+        return counts.most_common(1)[0][0]
+               
 ```
 
 1. 입력값에는 대소문자가 섞여 있으며 쉼표 및 구두점이 존재한다.  
