@@ -6,12 +6,15 @@ class MyStack:
 
     def push(self, x: int) -> None:
         self.q.append(x)
+        # 재정렬
+        for _ in range(len(self.q) - 1):
+            self.q.append(self.q.popleft())
 
     def pop(self) -> int:
-        return self.q.pop()
+        return self.q.popleft()
 
     def top(self) -> int:
-        return self.q[-1]        
+        return self.q[0]        
 
     def empty(self) -> bool:
         return len(self.q) == 0
